@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
 
 type Props = {
@@ -18,12 +18,26 @@ const Navbar: FC<Props> = ({ title }) => {
         </div>
         <div className="flex-1 px-2 mx-2">
           <div className="flex justify-end">
-            <Link to="/" className="btn btn-ghost btn-sm rounded-btn">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `btn btn-ghost btn-sm rounded-btn mr-2${
+                  !isActive ? '' : ' btn-active'
+                }`
+              }
+            >
               Home
-            </Link>
-            <Link to="/about" className="btn btn-ghost btn-sm rounded-btn">
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `btn btn-ghost btn-sm rounded-btn${
+                  !isActive ? '' : ' btn-active'
+                }`
+              }
+            >
               About
-            </Link>
+            </NavLink>
           </div>
         </div>
       </div>
