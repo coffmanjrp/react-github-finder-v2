@@ -1,11 +1,15 @@
 import { FC } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Navbar } from 'components';
 
 const App: FC = () => {
   return (
-    <div className="flex flex-col justify-center items-center w-screen h-screen">
-      <h1 className="text-3xl">Hello world</h1>
-      <div className="btn btn-primary mt-5">Click</div>
-    </div>
+    <Router>
+      <div className="flex flex-col justify-between h-screen">
+        <Navbar />
+        <main>Content</main>
+      </div>
+    </Router>
   );
 };
 
