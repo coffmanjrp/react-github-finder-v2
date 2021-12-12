@@ -1,6 +1,8 @@
 import { FC, useEffect, useState } from 'react';
+import { Spinner } from 'components';
 
 type UsersProps = {
+  id: number;
   login: string;
 }[];
 
@@ -25,13 +27,15 @@ const UserResults: FC = () => {
   };
 
   if (isLoading) {
-    return <h3>Loading...</h3>;
+    return <Spinner />;
   }
+
+  console.log(users);
 
   return (
     <div className="grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
       {(users as UsersProps).map((user) => (
-        <h3>{user.login}</h3>
+        <h3 key={user.id}>{user.login}</h3>
       ))}
     </div>
   );
