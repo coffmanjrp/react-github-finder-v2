@@ -1,9 +1,10 @@
 import { FC, useEffect, useState } from 'react';
-import { Spinner } from 'components';
+import { UserItem, Spinner } from 'components';
 
 type UsersProps = {
   id: number;
   login: string;
+  avatar_url: string;
 }[];
 
 const UserResults: FC = () => {
@@ -30,12 +31,10 @@ const UserResults: FC = () => {
     return <Spinner />;
   }
 
-  console.log(users);
-
   return (
     <div className="grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
       {(users as UsersProps).map((user) => (
-        <h3 key={user.id}>{user.login}</h3>
+        <UserItem {...{ key: user.id, user }} />
       ))}
     </div>
   );
