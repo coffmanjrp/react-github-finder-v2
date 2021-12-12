@@ -1,31 +1,21 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useContext } from 'react';
 import { UserItem, Spinner } from 'components';
+import GithubContext from 'context/github/GithubContext';
 
-type UsersProps = {
+type UsersType = {
   id: number;
   login: string;
   avatar_url: string;
 }[];
 
 const UserResults: FC = () => {
-  const [users, setUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { users, isLoading, fetchUsers } = useContext(GithubContext);
 
   useEffect(() => {
     fetchUsers();
+
+    // eslint-disable-next-line
   }, []);
-
-  const fetchUsers = async () => {
-    const response = await fetch(`${process.env.REACT_APP_GITHUB_URL}/users`, {
-      headers: {
-        Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
-      },
-    });
-    const data = await response.json();
-
-    setUsers(data);
-    setIsLoading(false);
-  };
 
   if (isLoading) {
     return <Spinner />;
@@ -33,7 +23,7 @@ const UserResults: FC = () => {
 
   return (
     <div className="grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
-      {(users as UsersProps).map((user) => (
+      {(users as UsersType).map((user) => (
         <UserItem {...{ key: user.id, user }} />
       ))}
     </div>
