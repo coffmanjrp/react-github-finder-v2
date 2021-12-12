@@ -1,9 +1,10 @@
 import { FC } from 'react';
-import { UserResults } from 'components';
+import { UserResults, UserSearch } from 'components';
 
 const Home: FC = () => {
   return (
     <>
+      <UserSearch />
       <UserResults />
     </>
   );

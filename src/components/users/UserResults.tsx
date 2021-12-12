@@ -1,4 +1,4 @@
-import { FC, useEffect, useContext } from 'react';
+import { FC, useContext } from 'react';
 import { UserItem, Spinner } from 'components';
 import GithubContext from 'context/github/GithubContext';
 
@@ -9,13 +9,7 @@ type UsersType = {
 }[];
 
 const UserResults: FC = () => {
-  const { users, isLoading, fetchUsers } = useContext(GithubContext);
-
-  useEffect(() => {
-    fetchUsers();
-
-    // eslint-disable-next-line
-  }, []);
+  const { users, isLoading } = useContext(GithubContext);
 
   if (isLoading) {
     return <Spinner />;
