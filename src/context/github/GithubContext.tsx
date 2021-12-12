@@ -40,8 +40,6 @@ export const GithubProvider = ({ children }: { children: ReactNode }) => {
     });
     const { items } = await response.json();
 
-    console.log(items);
-
     dispatch({
       type: 'GET_USERS',
       payload: items,
