@@ -1,14 +1,8 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { UserItemProps } from 'types';
 
-type Props = {
-  user: {
-    login: string;
-    avatar_url: string;
-  };
-};
-
-const UserItem: FC<Props> = ({ user: { login, avatar_url } }) => {
+const UserItem: FC<UserItemProps> = ({ user: { login, avatar_url } }) => {
   return (
     <div className="card shadow-md compact side bg-base-100">
       <div className="flex flex-row items-center space-x-4 card-body">

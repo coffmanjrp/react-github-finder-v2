@@ -1,49 +1,6 @@
 import { createContext, ReactNode, useReducer } from 'react';
 import githubReducer from './GithubReducer';
-
-type UserType = {
-  name: string;
-  type: string;
-  avatar_url: string;
-  location: string;
-  bio: string;
-  blog: string;
-  twitter_username: string;
-  login: string;
-  html_url: string;
-  followers: string;
-  following: string;
-  public_repos: string;
-  public_gists: string;
-  hireable: string;
-};
-
-type UsersType = {
-  id: number;
-  login: string;
-  avatar_url: string;
-}[];
-
-type RepoType = {
-  name: string;
-  description: string;
-  html_url: string;
-  forks: string;
-  open_issues: string;
-  watchers_count: string;
-  stargazers_count: string;
-};
-
-type GithubContextType = {
-  user: UserType;
-  users: UsersType;
-  repos: RepoType[];
-  isLoading: boolean;
-  searchUsers: (text: string) => Promise<void>;
-  getUser: (login: string | undefined) => Promise<void>;
-  getUserRepos: (login: string | undefined) => Promise<void>;
-  clearUsers: () => void;
-};
+import { GithubContextType } from 'types';
 
 const GithubContext = createContext({} as GithubContextType);
 

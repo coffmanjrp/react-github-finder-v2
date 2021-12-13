@@ -1,19 +1,8 @@
 import { FC } from 'react';
 import RepoItem from './RepoItem';
+import { RepoListProps } from 'types';
 
-type Props = {
-  repos: {
-    name: string;
-    description: string;
-    html_url: string;
-    forks: string;
-    open_issues: string;
-    watchers_count: string;
-    stargazers_count: string;
-  }[];
-};
-
-const RepoList: FC<Props> = ({ repos }) => {
+const RepoList: FC<RepoListProps> = ({ repos }) => {
   return (
     <div className="rounded-lg shadow-lg card bg-base-100">
       <div className="card-body">

@@ -1,19 +1,8 @@
 import { FC } from 'react';
 import { FaEye, FaInfo, FaLink, FaStar, FaUtensils } from 'react-icons/fa';
+import { RepoItemProps } from 'types';
 
-type Props = {
-  repo: {
-    name: string;
-    description: string;
-    html_url: string;
-    forks: string;
-    open_issues: string;
-    watchers_count: string;
-    stargazers_count: string;
-  };
-};
-
-const RepoItem: FC<Props> = ({ repo }) => {
+const RepoItem: FC<RepoItemProps> = ({ repo }) => {
   const {
     name,
     description,

@@ -3,28 +3,12 @@ import { Link, useParams } from 'react-router-dom';
 import { FaCodepen, FaStore, FaUserFriends, FaUsers } from 'react-icons/fa';
 import GithubContext from 'context/github/GithubContext';
 import { RepoList, Spinner } from 'components';
-
-type ParamsType = {
-  name: string;
-  type: string;
-  avatar_url: string;
-  location: string;
-  bio: string;
-  blog: string;
-  twitter_username: string;
-  login: string;
-  html_url: string;
-  followers: string;
-  following: string;
-  public_repos: string;
-  public_gists: string;
-  hireable: string;
-};
+import { UserType } from 'types';
 
 const User: FC = () => {
   const { user, repos, isLoading, getUser, getUserRepos } =
     useContext(GithubContext);
-  const { login } = useParams<ParamsType>();
+  const { login } = useParams<UserType>();
   const {
     name,
     type,

@@ -1,12 +1,9 @@
 import { FC } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
+import { NavbarProps } from 'types';
 
-type Props = {
-  title?: string;
-};
-
-const Navbar: FC<Props> = ({ title }) => {
+const Navbar: FC<NavbarProps> = ({ title }) => {
   return (
     <nav className="navbar mb-12 shadow-lg bg-neutral text-neutral-content">
       <div className="container mx-auto">

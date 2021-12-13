@@ -1,12 +1,7 @@
 import { FC, useContext } from 'react';
 import { UserItem, Spinner } from 'components';
 import GithubContext from 'context/github/GithubContext';
-
-type UsersType = {
-  id: number;
-  login: string;
-  avatar_url: string;
-}[];
+import { UsersType } from 'types';
 
 const UserResults: FC = () => {
   const { users, isLoading } = useContext(GithubContext);

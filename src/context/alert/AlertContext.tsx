@@ -1,10 +1,6 @@
 import { createContext, ReactNode, useReducer } from 'react';
 import alertReducer from './AlertReducer';
-
-type AlertContextType = {
-  alert: { msg: string; type: string };
-  setAlert: (msg: string, type: string) => void;
-};
+import { AlertContextType } from 'types';
 
 const AlertContext = createContext({} as AlertContextType);
 
