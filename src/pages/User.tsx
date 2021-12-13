@@ -4,10 +4,10 @@ import { FaCodepen, FaStore, FaUserFriends, FaUsers } from 'react-icons/fa';
 import GithubContext from 'context/github/GithubContext';
 import { RepoList, Spinner } from 'components';
 import { UserType } from 'types';
+import { getUserAndRepos } from 'context/github/GithubActions';
 
 const User: FC = () => {
-  const { user, repos, isLoading, getUser, getUserRepos } =
-    useContext(GithubContext);
+  const { user, repos, isLoading, dispatch } = useContext(GithubContext);
   const { login } = useParams<UserType>();
   const {
     name,
@@ -27,11 +27,17 @@ const User: FC = () => {
   } = user;
 
   useEffect(() => {
-    getUser(login);
-    getUserRepos(login);
+    dispatch({ type: 'SET_LOADING' });
+
+    getUserData();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const getUserData = async () => {
+    const userData = await getUserAndRepos(login);
+    dispatch({ type: 'GET_USER_AND_REPOS', payload: userData });
+  };
 
   if (isLoading) {
     return <Spinner />;

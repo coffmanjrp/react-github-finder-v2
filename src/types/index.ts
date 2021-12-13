@@ -1,3 +1,5 @@
+import { Dispatch } from 'react';
+
 export type NavbarProps = {
   title?: string;
 };
@@ -76,8 +78,5 @@ export type GithubContextType = {
   users: UsersType;
   repos: RepoType[];
   isLoading: boolean;
-  searchUsers: (text: string) => Promise<void>;
-  getUser: (login: string | undefined) => Promise<void>;
-  getUserRepos: (login: string | undefined) => Promise<void>;
-  clearUsers: () => void;
+  dispatch: Dispatch<any>;
 };
