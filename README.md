@@ -2,6 +2,8 @@
 
 Github user profile finder. Data provided by [Github API](https://docs.github.com/en/rest).
 
+[DEMO](https://react-github-finder-v2.vercel.app/)
+
 ![Github Finder](https://res.cloudinary.com/coffmanjrp-dev/image/upload/v1643494241/coffmanjrp.io/github_finder_293f14c054.png)
 
 ## How to start
